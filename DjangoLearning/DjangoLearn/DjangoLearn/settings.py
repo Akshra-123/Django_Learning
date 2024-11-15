@@ -38,7 +38,15 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "LearnApp",
+    "tailwind",
+    "TailwindApp",
+    
+    "colorfield",  #required dependency
+    "django_admin_interface", #admin interface package
 ]
+
+TAILWIND_APP_NAME = 'TailwindApp'
+INTERNAL_IPS = ['127.0.0.1']
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -51,6 +59,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "DjangoLearn.urls"
+
+NPM_BIN_PATH = "C:\\Program Files\\node.exe"
+
 
 TEMPLATES = [
     {
