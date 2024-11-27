@@ -19,7 +19,7 @@ def job_detail(request, job_id):
 # Job seeker profile view
 def job_seeker_profile(request, seeker_id):
     job_seeker = get_object_or_404(JobApplication, id=seeker_id)
-    return render(request, 'job_seeker_profile.html', {'job_seeker': job_seeker})
+    return render(request, 'candidate_profile.html', {'job_seeker': job_seeker})
 
 # Job search results view
 def search_jobs(request):
