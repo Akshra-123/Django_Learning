@@ -34,7 +34,7 @@ def apply_to_job(request, job_id):
         # Logic for applying to a job (e.g., save applicant details)
         # Placeholder logic:
         return render(request, 'application_success.html', {'job': job})
-    return render(request, 'apply_to_job.html', {'job': job})
+    return render(request, 'apply_for_job.html', {'job': job})
 
 
 
