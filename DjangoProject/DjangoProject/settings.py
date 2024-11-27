@@ -118,6 +118,14 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
+# Specify the directory for static files (optional if using the app's static directory)
+STATICFILES_DIRS = [
+    BASE_DIR / "static",  # For global static files
+]
+
+# Automatically collect static files for deployment
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
