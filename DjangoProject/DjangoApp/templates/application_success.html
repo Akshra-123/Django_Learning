@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Submitted</title>
+    <!-- Load static files -->
+    {% load static %}
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <!-- Add a favicon (optional) -->
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+</head>
+<body>
+    <header>
+        <h1>Job Portal</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'search_jobs' %}">Search Jobs</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Application Submitted Successfully!</h2>
+        <p>You have successfully applied for the job: <strong>{{ job.title }}</strong>.</p>
+        <p>Location: {{ job.location }}</p>
+        <p>Job Type: {{ job.get_job_type_display }}</p>
+
+        <a href="{% url 'home' %}" class="btn">Go Back to Home</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Job Portal. All rights reserved.</p>
+    </footer>
+
+    <!-- Link to JavaScript -->
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
