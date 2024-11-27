@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ company.company_name }}'s Profile</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Job Portal</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'company_profile' %}">Company Profile</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>{{ company.company_name }}</h2>
+        <p><strong>Description:</strong> {{ company.company_description }}</p>
+        <p><strong>Location:</strong> {{ company.location }}</p>
+        <p><strong>Website:</strong> <a href="{{ company.website }}">{{ company.website }}</a></p>
+        <h3>Posted Jobs</h3>
+        <div class="job-listings">
+            {% for job in company.job_posts.all %}
+                <div class="job-item">
+                    <h3><a href="{% url 'job_detail' job.id %}">{{ job.title }}</a></h3>
+                    <p><strong>Location:</strong> {{ job.location }}</p>
+                    <p><strong>Job Type:</strong> {{ job.get_job_type_display }}</p>
+                </div>
+            {% empty %}
+                <p>No jobs posted by this company yet.</p>
+            {% endfor %}
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; {{ current_year }} Job Portal. All rights reserved.</p>
+    </footer>
+</body>
+</html>

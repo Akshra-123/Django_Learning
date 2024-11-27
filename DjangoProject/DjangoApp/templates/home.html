@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Portal - Home</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Job Portal</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'candidate_profile' %}">My Profile</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'signup' %}">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Job Listings</h2>
+        <div class="job-listings">
+            {% for job in job_posts %}
+                <div class="job-item">
+                    <h3><a href="{% url 'job_detail' job.id %}">{{ job.title }}</a></h3>
+                    <p><strong>Company:</strong> {{ job.company.company_name }}</p>
+                    <p><strong>Location:</strong> {{ job.location }}</p>
+                    <p><strong>Job Type:</strong> {{ job.get_job_type_display }}</p>
+                    <p><strong>Posted:</strong> {{ job.posted_date|date:"F j, Y" }}</p>
+                </div>
+            {% empty %}
+                <p>No jobs available at the moment.</p>
+            {% endfor %}
+        </div>
+    </section>
+</body>
+</html>

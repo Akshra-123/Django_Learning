@@ -1,0 +1,17 @@
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .job-item {
+        width: calc(50% - 10px);
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .job-item {
+        width: 100%;
+    }
+}

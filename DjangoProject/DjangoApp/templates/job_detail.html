@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Detail - {{ job.title }}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Job Portal</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'candidate_profile' %}">My Profile</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'signup' %}">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>{{ job.title }}</h2>
+        <p><strong>Company:</strong> {{ job.company.company_name }}</p>
+        <p><strong>Description:</strong> {{ job.description }}</p>
+        <p><strong>Requirements:</strong> {{ job.requirements }}</p>
+        <p><strong>Location:</strong> {{ job.location }}</p>
+        <p><strong>Job Type:</strong> {{ job.get_job_type_display }}</p>
+        <p><strong>Category:</strong> {{ job.get_category_display }}</p>
+        <p><strong>Salary:</strong> ${{ job.salary }}</p>
+        <p><strong>Posted Date:</strong> {{ job.posted_date|date:"F j, Y" }}</p>
+        <p><strong>Closing Date:</strong> {{ job.closing_date|date:"F j, Y" }}</p>
+
+        <a href="{% url 'apply_for_job' job.id %}" class="apply-btn">Apply Now</a>
+    </section>
+</body>
+</html>
