@@ -1,0 +1,15 @@
+# Ignore the sqlite3 database file
+# db.sqlite3
+
+# Ignore system files
+$Recycle.Bin/
+hiberfil.sys
+swapfile.sys
+
+# Ignore specific folders
+*.log
+*.tmp
+
+# Ignore virtual environments (if any)
+.venv/
+env/
